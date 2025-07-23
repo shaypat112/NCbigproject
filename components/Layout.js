@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import ChatBot from '../components/ChatBot'; // Adjust path if needed
+import Chatbot from '../components/Chatbot'; // This now points to the new component
 
 export default function Layout({ children }) {
   const router = useRouter();
