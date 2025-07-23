@@ -1,26 +1,178 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #000000, #4b0082, #000000);
+  color: white;
+  min-height: 100vh;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Navbar container */
+.navbar {
+  background-color: #2a076e;
+  display: flex;
+  justify-content: space-between; /* spread logo and links */
+  align-items: center;
+  border-bottom: 2px solid #7c3aed;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #c084fc;
+}
+
+/* Navbar links container */
+nav {
+  display: flex;
+  gap: 1.2rem; /* moderate gap between links */
+}
+
+/* Individual nav links */
+.nav-link, .navbar a {
+  color: #c084fc;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem; /* balanced vertical & horizontal padding */
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+/* Hover & active states */
+.nav-link:hover, .navbar a:hover {
+  color: #e0aaff;
+  background: rgba(192, 132, 252, 0.15);
+  box-shadow: 0 0 8px #c084fc;
+}
+
+/* Active link underline or highlight */
+.nav-link.active {
+  color: #c084fc;
+  font-weight: 700;
+  box-shadow:
+    0 2px 0 #c084fc;
+}
+
+/* Main content */
+main {
+  padding: 1rem 0;
+}
+
+/* Chatbot basic styles - unchanged from your snippet */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #9333ea;
+  border: none;
+  color: white;
+  font-size: 1.7rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 15px #9333ea;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+  box-shadow: 0 0 25px #a855f7;
+}
+
+/* Add this to your globals.css if not using Tailwind */
+.chatbot-window {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 340px;
+  background: #fff;
+  border: 2px solid #a855f7;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeInUp 0.3s ease;
+}
+
+.chatbot-header {
+  background-color: #a855f7;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-messages {
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.chatbot-message.bot {
+  background-color: #f3e8ff;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 10px;
+  max-width: 85%;
+}
+
+.chatbot-message.user {
+  background-color: #e0f2fe;
+  padding: 8px;
+  margin: 5px 0;
+  align-self: flex-end;
+  border-radius: 10px;
+  max-width: 85%;
+}
+
+.chatbot-input-area {
+  display: flex;
+  padding: 8px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #fff;
+}
+
+.chatbot-input-area input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  margin-right: 8px;
+}
+
+.chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  padding: 10px 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* ...rest of chatbot styles unchanged... */
