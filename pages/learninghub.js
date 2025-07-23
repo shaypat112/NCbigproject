@@ -67,7 +67,7 @@ export default function LearningHub() {
   const [quizAnswers, setQuizAnswers] = useState({}); // keys: `${lang}-${quizId}`
   const [quizResults, setQuizResults] = useState({}); // keys: `${lang}-${quizId}`
 
-  // Copy to clipboard helper (safer)
+  // Copy to clipboard helper (async with try-catch)
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -148,7 +148,7 @@ export default function LearningHub() {
             </h2>
             <ul>
               <li>
-                Browse the <strong>Code Snippet Library</strong> and click "Copy" to copy code.
+                Browse the <strong>Code Snippet Library</strong> and click &quot;Copy&quot; to copy code.
               </li>
               <li>
                 Take the <strong>Mini Quizzes</strong> below each language section to test your
