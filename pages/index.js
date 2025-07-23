@@ -20,7 +20,7 @@ export default function Home() {
 
   const projects = [
     {
-      name: "Shivang's Portfolio", // replaced curly apostrophe with straight one
+      name: "Shivang Portfolio", // replaced curly apostrophe with straight one
       desc: 'A classy, professional portfolio website built with React and Next.js.',
       url: 'https://portyfolio-bnfb.vercel.app/',
     },

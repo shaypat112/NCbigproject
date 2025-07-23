@@ -22,12 +22,12 @@ const quizzes = {
     {
       id: 1,
       question: 'Which tag is used for hyperlinks?',
-      options: ['<link>', '<a>', '<href>', '<url>'],
-      answer: '<a>',
+      options: ['&lt;link&gt;', '&lt;a&gt;', '&lt;href&gt;', '&lt;url&gt;'],
+      answer: '&lt;a&gt;',
     },
     {
       id: 2,
-      question: 'What does <img> tag require?',
+      question: 'What does &lt;img&gt; tag require?',
       options: ['src attribute', 'alt attribute', 'Both', 'None'],
       answer: 'Both',
     },
@@ -56,7 +56,7 @@ const quizzes = {
     {
       id: 2,
       question: 'What symbol is used for comments?',
-      options: ['//', '#', '/*', '<!--'],
+      options: ['//', '#', '/*', '&lt;!--'],
       answer: '#',
     },
   ],
