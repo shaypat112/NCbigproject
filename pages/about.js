@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function About() {
   return (
     <>
@@ -43,9 +45,11 @@ export default function About() {
 
       {/* Call to action */}
       <section style={{ textAlign: 'center', marginTop: '3rem' }}>
-        <a href="/officerapps" className="neon-btn pulse-glow" style={{ textDecoration: 'none', fontSize: '1.3rem' }}>
-          🌟 Join Us & Lead the Future
-        </a>
+        <Link href="/officerapps" legacyBehavior>
+          <a className="neon-btn pulse-glow" style={{ textDecoration: 'none', fontSize: '1.3rem' }}>
+            🌟 Join Us & Lead the Future
+          </a>
+        </Link>
       </section>
 
       <style jsx>{`

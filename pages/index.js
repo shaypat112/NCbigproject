@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 function Typewriter({ text, speed = 100 }) {
   const [displayed, setDisplayed] = useState('');
@@ -19,7 +20,7 @@ export default function Home() {
 
   const projects = [
     {
-      name: 'Shivang’s Portfolio',
+      name: "Shivang's Portfolio", // replaced curly apostrophe with straight one
       desc: 'A classy, professional portfolio website built with React and Next.js.',
       url: 'https://portyfolio-bnfb.vercel.app/',
     },
@@ -63,9 +64,11 @@ export default function Home() {
           <strong style={{ color: '#c084fc' }}>ProjectUcode</strong> is here to spark your creativity and growth.
         </p>
 
-        <a href="/resources" className="neon-btn pulse-glow" style={{ textDecoration: 'none' }}>
-          🌐 Explore Resources
-        </a>
+        <Link href="/resources" legacyBehavior>
+          <a className="neon-btn pulse-glow" style={{ textDecoration: 'none' }} aria-label="Explore Resources">
+            🌐 Explore Resources
+          </a>
+        </Link>
 
         {/* Help Button */}
         <div style={{ marginTop: '2rem' }}>
