@@ -50,7 +50,7 @@ export default function Layout({ children }) {
 
       <main>{children}</main>
 
-      <ChatBot />
+      <Chatbot />
 
       <style jsx>{`
         .navbar {
