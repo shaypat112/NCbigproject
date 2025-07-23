@@ -64,20 +64,25 @@ const quizzes = {
 
 export default function LearningHub() {
   const [showHelp, setShowHelp] = useState(false);
-  const [quizAnswers, setQuizAnswers] = useState({}); // { quizId: selectedOption }
-  const [quizResults, setQuizResults] = useState({}); // { quizId: true/false }
+  const [quizAnswers, setQuizAnswers] = useState({}); // keys: `${lang}-${quizId}`
+  const [quizResults, setQuizResults] = useState({}); // keys: `${lang}-${quizId}`
 
-  // Copy to clipboard helper
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    alert('Copied to clipboard!');
+  // Copy to clipboard helper (safer)
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('Copied to clipboard!');
+    } catch {
+      alert('Failed to copy. Please try manually.');
+    }
   };
 
-  // Quiz answer selection handler
+  // Quiz answer selection handler with combined keys
   const handleAnswerSelect = (lang, quizId, option) => {
-    setQuizAnswers((prev) => ({ ...prev, [quizId]: option }));
+    const key = `${lang}-${quizId}`;
+    setQuizAnswers((prev) => ({ ...prev, [key]: option }));
     const correct = quizzes[lang].find((q) => q.id === quizId).answer === option;
-    setQuizResults((prev) => ({ ...prev, [quizId]: correct }));
+    setQuizResults((prev) => ({ ...prev, [key]: correct }));
   };
 
   return (
@@ -115,7 +120,10 @@ export default function LearningHub() {
           tabIndex={-1}
           style={{
             position: 'fixed',
-            top: 0, left: 0, right: 0, bottom: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             background: 'rgba(0,0,0,0.7)',
             display: 'flex',
             justifyContent: 'center',
@@ -139,8 +147,13 @@ export default function LearningHub() {
               How to Use the Learning Hub
             </h2>
             <ul>
-              <li>Browse the <strong>Code Snippet Library</strong> and click "Copy" to copy code.</li>
-              <li>Take the <strong>Mini Quizzes</strong> below each language section to test your knowledge.</li>
+              <li>
+                Browse the <strong>Code Snippet Library</strong> and click "Copy" to copy code.
+              </li>
+              <li>
+                Take the <strong>Mini Quizzes</strong> below each language section to test your
+                knowledge.
+              </li>
               <li>Click the <strong>Help</strong> button anytime to see this message.</li>
             </ul>
             <button
@@ -218,61 +231,68 @@ export default function LearningHub() {
         {Object.entries(quizzes).map(([lang, questions]) => (
           <div key={lang} style={{ marginBottom: '2rem' }}>
             <h3 style={{ color: '#c084fc' }}>{lang}</h3>
-            {questions.map(({ id, question, options }) => (
-              <div
-                key={id}
-                style={{
-                  background: '#1e1e2f',
-                  padding: '1rem',
-                  borderRadius: '8px',
-                  marginBottom: '1rem',
-                  color: '#ddd6fe',
-                  boxShadow: 'inset 0 0 10px #7c3aed',
-                }}
-              >
-                <p><strong>{question}</strong></p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {options.map((opt) => {
-                    const selected = quizAnswers[id] === opt;
-                    const isCorrect = quizResults[id] === true && selected;
-                    const isIncorrect = quizResults[id] === false && selected;
-                    return (
-                      <button
-                        key={opt}
-                        onClick={() => handleAnswerSelect(lang, id, opt)}
-                        disabled={quizAnswers[id] != null}
-                        style={{
-                          background: selected
-                            ? isCorrect
-                              ? '#22c55e'
-                              : isIncorrect
-                              ? '#ef4444'
-                              : '#9333ea'
-                            : '#44475a',
-                          color: 'white',
-                          border: 'none',
-                          padding: '0.5rem 1rem',
-                          borderRadius: '6px',
-                          cursor: quizAnswers[id] == null ? 'pointer' : 'default',
-                          flexGrow: 1,
-                          minWidth: '100px',
-                        }}
-                        aria-pressed={selected}
-                      >
-                        {opt}
-                      </button>
-                    );
-                  })}
-                </div>
-                {quizAnswers[id] != null && (
-                  <p style={{ marginTop: '0.5rem' }}>
-                    {quizResults[id]
-                      ? '✅ Correct!'
-                      : `❌ Incorrect. The correct answer is: ${quizzes[lang].find(q => q.id === id).answer}`}
+            {questions.map(({ id, question, options }) => {
+              const key = `${lang}-${id}`;
+              return (
+                <div
+                  key={id}
+                  style={{
+                    background: '#1e1e2f',
+                    padding: '1rem',
+                    borderRadius: '8px',
+                    marginBottom: '1rem',
+                    color: '#ddd6fe',
+                    boxShadow: 'inset 0 0 10px #7c3aed',
+                  }}
+                >
+                  <p>
+                    <strong>{question}</strong>
                   </p>
-                )}
-              </div>
-            ))}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {options.map((opt) => {
+                      const selected = quizAnswers[key] === opt;
+                      const isCorrect = quizResults[key] === true && selected;
+                      const isIncorrect = quizResults[key] === false && selected;
+                      return (
+                        <button
+                          key={opt}
+                          onClick={() => handleAnswerSelect(lang, id, opt)}
+                          disabled={quizAnswers[key] != null}
+                          style={{
+                            background: selected
+                              ? isCorrect
+                                ? '#22c55e'
+                                : isIncorrect
+                                ? '#ef4444'
+                                : '#9333ea'
+                              : '#44475a',
+                            color: 'white',
+                            border: 'none',
+                            padding: '0.5rem 1rem',
+                            borderRadius: '6px',
+                            cursor: quizAnswers[key] == null ? 'pointer' : 'default',
+                            flexGrow: 1,
+                            minWidth: '100px',
+                          }}
+                          aria-pressed={selected}
+                        >
+                          {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {quizAnswers[key] != null && (
+                    <p style={{ marginTop: '0.5rem' }}>
+                      {quizResults[key]
+                        ? '✅ Correct!'
+                        : `❌ Incorrect. The correct answer is: ${
+                            quizzes[lang].find((q) => q.id === id).answer
+                          }`}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         ))}
       </section>

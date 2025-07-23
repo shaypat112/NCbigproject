@@ -59,7 +59,7 @@ export default function Home() {
         </h1>
 
         <p style={{ maxWidth: 600, margin: '2rem auto', fontSize: '1.25rem', color: '#ddd6fe' }}>
-          🚀 Whether you're new to coding or want to build a portfolio that stands out,
+          🚀 Whether you are new to coding or want to build a portfolio that stands out,
           <br />
           <strong style={{ color: '#c084fc' }}>ProjectUcode</strong> is here to spark your creativity and growth.
         </p>
@@ -116,7 +116,7 @@ export default function Home() {
       >
         <h2 className="projects-title">🔥 Projects We Will Build Together</h2>
         <p className="projects-intro">
-          Dive into exciting projects where you’ll learn coding, design, and deployment skills! Here are some cool projects on our roadmap:
+          Dive into exciting projects where you can learn coding, design, and deployment skills! Here are some cool projects on our roadmap:
         </p>
         <ul className="project-list">
           {projects.map(({ name, desc, url }) => (
@@ -182,7 +182,7 @@ export default function Home() {
             }}
           >
             <h2 id="help-title" style={{ color: '#c084fc', marginTop: 0 }}>
-              Help & Tips
+              Help &amp; Tips
             </h2>
             <p>Welcome to ProjectUcode! Here are some tips to get started:</p>
             <ul>
