@@ -24,7 +24,7 @@ export default function OfficerApps() {
         <div className="card officer-card">
           <h2>🚀 Officer Applications</h2>
           <p>Lead, organize, and inspire. Officers shape the future of ProjectUcode by guiding projects and community efforts.</p>
-          <a href="/officerapps/form" className="btn-glow" target="_blank" rel="noopener noreferrer">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfgzG1rNDSrS-BA1JqTaSLBOxQj77-sD5ZqIod9wYCFzrlKnQ/viewform?usp=header" className="btn-glow" target="_blank" rel="noopener noreferrer">
             Apply as Officer
           </a>
         </div>
@@ -32,7 +32,7 @@ export default function OfficerApps() {
         <div className="card member-card">
           <h2>🤝 Member Applications</h2>
           <p>Join as a member to collaborate, learn, and grow alongside a passionate community of creators and coders.</p>
-          <a href="/memberapps/form" className="btn-glow" target="_blank" rel="noopener noreferrer">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScfDB8fY0NJ3jJUT4RgoPoJuqabFMNIjGxzC3byJeanrrUWzQ/viewform?usp=header" className="btn-glow" target="_blank" rel="noopener noreferrer">
             Apply as Member
           </a>
         </div>
