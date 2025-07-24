@@ -60,6 +60,9 @@ export default function Layout({ children }) {
     { href: '/gallery', label: 'Projects' },
     { href: '/members', label: 'Members' },
     { href: '/tutorials', label: 'Tutorials' },
+    { href: '/games', label: 'Games' },
+
+
   ];
 
   useEffect(() => {

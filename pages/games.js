@@ -75,7 +75,7 @@ function TicTacToe() {
   const status = winner
     ? `Winner: ${winner}`
     : board.every((cell) => cell !== null)
-    ? "It's a Draw!"
+    ? "It is a Draw!"
     : `Next: ${xIsNext ? 'X' : 'O'}`;
 
   return (
@@ -164,7 +164,7 @@ function RockPaperScissors() {
     setPlayerChoice(`You chose: ${choice} | Bot chose: ${bot}`);
 
     if (choice === bot) {
-      setResult("It's a tie!");
+      setResult("It is a tie!");
       setScore((s) => ({ ...s, ties: s.ties + 1 }));
     } else if (
       (choice === 'Rock' && bot === 'Scissors') ||
@@ -623,7 +623,7 @@ function CountdownTimer() {
       timerId.current = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     } else if (timeLeft === 0) {
       setIsActive(false);
-      alert("Time's up!");
+      alert("Time is up!");
     }
     return () => clearTimeout(timerId.current);
   }, [isActive, timeLeft]);
