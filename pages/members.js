@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 
 const members = [
   {
@@ -111,14 +113,17 @@ export default function Members() {
               key={idx}
             >
               <div className="photo-wrapper">
-                <img
-                  src={photo}
-                  alt={`${name}'s photo`}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/images/placeholder.png';
-                  }}
-                />
+                <Image
+  src={photo}
+  alt={`${name}&apos;s photo`}
+  width={200}    // set width & height accordingly
+  height={200}
+  onError={(e) => {
+    e.target.onerror = null;
+    e.target.src = '/images/placeholder.png';
+  }}
+  loading="lazy"
+/>
               </div>
               <h2>{name}</h2>
               <h3>{role}</h3>

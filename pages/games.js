@@ -72,11 +72,12 @@ function TicTacToe() {
   };
 
   const winner = calculateWinner(board);
-  const status = winner
-    ? `Winner: ${winner}`
-    : board.every((cell) => cell !== null)
-    ? "It is a Draw!"
-    : `Next: ${xIsNext ? 'X' : 'O'}`;
+     const status = winner
+  ? `Winner: ${winner}`
+  : board.every((cell) => cell !== null)
+  ? "It&apos;s a Draw!"
+  : `Next: ${xIsNext ? 'X' : 'O'}`;
+
 
   return (
     <div>
@@ -331,7 +332,7 @@ function GuessNumber() {
 
   return (
     <div>
-      <p>I'm thinking of a number between 1 and 100.</p>
+      <p> Thinking of a number between 1 and 100.</p>
       <input
         type="number"
         value={guess}
