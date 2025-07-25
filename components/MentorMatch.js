@@ -8,7 +8,7 @@ const mentorsData = [
     availability: ['Monday', 'Wednesday'],
     rating: 4.9,
     email: 'sanvi@gmail.com',
-    photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+    photo: 'https://media.licdn.com/dms/image/v2/D4D03AQHZ2ZU4wDzCyQ/profile-displayphoto-crop_800_800/B4DZg89kctHYAI-/0/1753369430474?e=1756339200&v=beta&t=bVzc7w8djW3BdXt9uPDo9bBT6EsCrLVBn-uvGtg7p6A',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const mentorsData = [
     availability: ['Tuesday', 'Thursday'],
     rating: 4.7,
     email: 'shivangpatel2050@gmail.com',
-    photo: 'https://randomuser.me/api/portraits/men/12.jpg',
+    photo: 'https://media.licdn.com/dms/image/v2/D5603AQFaN6Q_4o7l9A/profile-displayphoto-crop_800_800/B56Zfxi4d0HUAI-/0/1752104154118?e=1756339200&v=beta&t=ubPncsIoH94yLPmyzRiCq_GWEo3HGiFBKPBgnoih-hE',
   },
   // Add more mentor objects here...
   // For brevity, only 2 shown — add up to 20+ mentors for pagination to matter

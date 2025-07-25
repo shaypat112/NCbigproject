@@ -8,13 +8,13 @@ const members = [
     name: 'Shivang Patel',
     role: 'Founder, Fullstack Developer, Frontend & Backend Specialist',
     bio: 'Passionate coder and student-athlete, driving ProjectUcode’s vision forward. Creator of this platform, specializing in fullstack development across front-end and back-end.',
-    photo: '/images/shivang.jpg',
+    photo: 'https://media.licdn.com/dms/image/v2/D5603AQFaN6Q_4o7l9A/profile-displayphoto-crop_800_800/B56Zfxi4d0HUAI-/0/1752104154118?e=1756339200&v=beta&t=ubPncsIoH94yLPmyzRiCq_GWEo3HGiFBKPBgnoih-hE',
   },
   {
-    name: 'Sannvi',
+    name: 'Sanvi',
     role: 'Content Creator & Co-executive of Mindset Math',
     bio: 'Creating tutorials, guides, and managing content for learners. Holds a Quantum Computing certificate and leads innovative learning strategies.',
-    photo: '/images/sannvi.jpg',
+    photo: 'https://media.licdn.com/dms/image/v2/D4D03AQHZ2ZU4wDzCyQ/profile-displayphoto-crop_800_800/B4DZg89kctHYAI-/0/1753369430474?e=1756339200&v=beta&t=bVzc7w8djW3BdXt9uPDo9bBT6EsCrLVBn-uvGtg7p6A',
   },
   {
     name: 'Member Name',
@@ -29,6 +29,7 @@ const members = [
     photo: '/images/placeholder.png',
   },
 ];
+
 
 export default function Members() {
   const [visibleIndexes, setVisibleIndexes] = useState([]);

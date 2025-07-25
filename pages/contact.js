@@ -62,7 +62,7 @@ export default function Contact() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('hello.projectucode@example.com');
+    navigator.clipboard.writeText('projectucodenc@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -82,11 +82,11 @@ export default function Contact() {
 
         <div className="contact-info">
           <p>
-            📧 Email: <span className="link" onClick={handleCopy}>hello.projectucode@example.com</span>
+            📧 Email: <span className="link" onClick={handleCopy}>projectucodenc@gmail.com</span>
             {copied && <span className="copy-message">✓ Copied!</span>}
           </p>
           <p>
-            📸 Instagram: <a className="link" href="https://instagram.com/projectUcode" target="_blank">@projectUcode</a> &amp; <a className="link" href="https://instagram.com/projectUcodeNC" target="_blank">@projectUcodeNC</a>
+            📸 Instagram: <a className="link" href="https://instagram.com/projectUcode" target="_blank">@projectUcode</a> &amp; <a className="link" href="https://instagram.com/projectucode_nc" target="_blank">@projectUcodeNC</a>
           </p>
         </div>
 
