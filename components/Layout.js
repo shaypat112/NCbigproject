@@ -61,6 +61,8 @@ export default function Layout({ children }) {
     { href: '/members', label: 'Members' },
     { href: '/tutorials', label: 'Tutorials' },
     { href: '/games', label: 'Games' },
+    { href: '/mentor-match', label: 'Find a Mentor' }
+
 
 
   ];

@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import ButtonWithCounter from '../components/ButtonWithCounter'
+import MentorMatch from '../components/MentorMatch';
+import DailyTip from '../components/DailyTip';
+
+
 
 export default function OfficerApps() {
   const [openSections, setOpenSections] = useState({
@@ -49,37 +54,32 @@ export default function OfficerApps() {
         </p>
       </section>
 
-      {/* Application Cards */}
-      <section className="cards-section">
-        <div className="card officer-card">
-          <h2>🚀 Officer Applications</h2>
-          <p>
-            Lead, organize, and inspire. Officers shape the future of ProjectUcode by guiding projects and
-            community efforts.
-          </p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfgzG1rNDSrS-BA1JqTaSLBOxQj77-sD5ZqIod9wYCFzrlKnQ/viewform?usp=header"
-            className="btn-glow"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Apply as Officer
-          </a>
-        </div>
+    {/* Application Cards */}
+<section className="cards-section">
+  <div className="card officer-card">
+    <h2>🚀 Officer Applications</h2>
+    <p>
+      Lead, organize, and inspire. Officers shape the future of ProjectUcode by guiding projects and
+      community efforts.
+    </p>
+    <ButtonWithCounter
+      id="officer"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfgzG1rNDSrS-BA1JqTaSLBOxQj77-sD5ZqIod9wYCFzrlKnQ/viewform?usp=header"
+      label="Apply as Officer"
+    />
+  </div>
 
-        <div className="card member-card">
-          <h2>🤝 Member Applications</h2>
-          <p>Join as a member to collaborate, learn, and grow alongside a passionate community of creators and coders.</p>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScfDB8fY0NJ3jJUT4RgoPoJuqabFMNIjGxzC3byJeanrrUWzQ/viewform?usp=header"
-            className="btn-glow"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Apply as Member
-          </a>
-        </div>
-      </section>
+  <div className="card member-card">
+    <h2>🤝 Member Applications</h2>
+    <p>Join as a member to collaborate, learn, and grow alongside a passionate community of creators and coders.</p>
+    <ButtonWithCounter
+      id="member"
+      href="https://docs.google.com/forms/d/e/1FAIpQLScfDB8fY0NJ3jJUT4RgoPoJuqabFMNIjGxzC3byJeanrrUWzQ/viewform?usp=header"
+      label="Apply as Member"
+    />
+  </div>
+</section>
+
 
       {/* Animated Info Cards */}
       <section className="info-section">
@@ -302,150 +302,231 @@ export default function OfficerApps() {
       </section>
 
       <style jsx>{`
-        /* Your styles unchanged from before */
-        .cards-section {
-          display: flex;
-          justify-content: center;
-          gap: 2.5rem;
-          flex-wrap: wrap;
-          max-width: 900px;
-          margin: 0 auto 4rem auto;
-          padding: 0 1rem;
-        }
+  /* Your styles unchanged from before */
+  .cards-section {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+    padding: 0 1rem;
+  }
 
-        .card {
-          background: linear-gradient(135deg, #2a0a54, #4b0082);
-          border-radius: 1.25rem;
-          padding: 2.5rem 2rem;
-          box-shadow: 0 0 25px #7c3aed, 0 0 60px #a855f7;
-          color: #ddd6fe;
-          text-align: center;
-          flex: 1 1 320px;
-          max-width: 350px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          user-select: none;
-        }
+  .card {
+    background: linear-gradient(135deg, #2a0a54, #4b0082);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 0 25px #7c3aed, 0 0 60px #a855f7;
+    color: #ddd6fe;
+    text-align: center;
+    flex: 1 1 320px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
 
-        .card:hover {
-          transform: translateY(-12px);
-          box-shadow: 0 0 50px #7c3aed, 0 0 120px #a855f7;
-        }
+  .card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 50px #7c3aed, 0 0 120px #a855f7;
+  }
 
-        .card h2 {
-          font-size: 2rem;
-          color: #c084fc;
-          margin-bottom: 1rem;
-          text-shadow: 0 0 10px #c084fc;
-        }
+  .card h2 {
+    font-size: 2rem;
+    color: #c084fc;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px #c084fc;
+  }
 
-        .card p {
-          font-size: 1.1rem;
-          margin-bottom: 2rem;
-          color: #e0d7ffcc;
-        }
+  .card p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #e0d7ffcc;
+  }
 
-        .btn-glow {
-          display: inline-block;
-          padding: 0.9rem 2.5rem;
-          font-weight: 700;
-          font-size: 1.2rem;
-          color: white;
-          background-color: #9333ea;
-          border-radius: 9999px;
-          box-shadow: 0 0 20px #c084fc;
-          text-decoration: none;
-          transition: box-shadow 0.3s ease, transform 0.3s ease;
-          user-select: none;
-        }
+  .btn-glow {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #9333ea;
+    border-radius: 9999px;
+    box-shadow: 0 0 20px #c084fc;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    user-select: none;
+  }
 
-        .btn-glow:hover {
-          box-shadow: 0 0 40px #f0abfc, 0 0 80px #c084fc;
-          transform: scale(1.1);
-        }
+  .btn-glow:hover {
+    box-shadow: 0 0 40px #f0abfc, 0 0 80px #c084fc;
+    transform: scale(1.1);
+  }
 
-        .info-section {
-          max-width: 800px;
-          margin: 2rem auto;
-          padding: 0 1rem;
-          color: #ddd6fe;
-        }
+  .info-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    color: #ddd6fe;
+  }
 
-        .info-section h2 {
-          font-size: 1.75rem;
-          margin-bottom: 1rem;
-          color: #a78bfa;
-          user-select: none;
-        }
+  .info-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #a78bfa;
+    user-select: none;
+  }
 
-        /* Animated Card Styles */
-        .animated-card {
-          background: linear-gradient(135deg, #2a0a54, #4b0082);
-          border-radius: 1.25rem;
-          box-shadow: 0 0 25px #7c3aed, 0 0 60px #a855f7;
-          color: #ddd6fe;
-          margin-bottom: 1.5rem;
-          cursor: pointer;
-          padding: 1.5rem 2rem;
-          overflow: hidden;
-          transition: box-shadow 0.4s ease;
-          user-select: none;
-        }
-        .animated-card:hover {
-          box-shadow: 0 0 50px #7c3aed, 0 0 120px #a855f7;
-        }
+  /* Animated Card Styles */
+  .animated-card {
+    background: linear-gradient(135deg, #2a0a54, #4b0082);
+    border-radius: 1.25rem;
+    box-shadow: 0 0 25px #7c3aed, 0 0 60px #a855f7;
+    color: #ddd6fe;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    padding: 1.5rem 2rem;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+    user-select: none;
+  }
+  .animated-card:hover {
+    box-shadow: 0 0 50px #7c3aed, 0 0 120px #a855f7;
+  }
 
-        .animated-card h2 {
-          font-size: 2rem;
-          color: #c084fc;
-          margin: 0;
-          user-select: none;
-        }
+  .animated-card h2 {
+    font-size: 2rem;
+    color: #c084fc;
+    margin: 0;
+    user-select: none;
+  }
 
-        .animated-card .content {
-          max-height: 0;
-          opacity: 0;
-          overflow: hidden;
-          transition: max-height 0.6s ease, opacity 0.6s ease;
-          padding-left: 1.5rem;
-          margin-top: 1rem;
-          color: #e0d7ffcc;
-        }
+  .animated-card .content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    color: #e0d7ffcc;
+  }
 
-        .animated-card.open .content {
-          max-height: 1000px; /* plenty for content */
-          opacity: 1;
-        }
+  .animated-card.open .content {
+    max-height: 1000px; /* plenty for content */
+    opacity: 1;
+  }
 
-        .animated-card ul {
-          list-style: disc;
-          padding-left: 1.5rem;
-          margin: 0;
-        }
+  .animated-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+  }
 
-        .animated-card blockquote {
-          border-left: 4px solid #a855f7;
-          padding-left: 1rem;
-          font-style: italic;
-          margin: 1rem 0;
-        }
+  .animated-card blockquote {
+    border-left: 4px solid #a855f7;
+    padding-left: 1rem;
+    font-style: italic;
+    margin: 1rem 0;
+  }
 
-        .info-section a {
-          color: #a855f7;
-          text-decoration: underline;
-        }
+  .info-section a {
+    color: #a855f7;
+    text-decoration: underline;
+  }
 
-        @media (max-width: 900px) {
-          .cards-section {
-            flex-direction: column;
-            align-items: center;
-          }
+  @media (max-width: 900px) {
+    .cards-section {
+      flex-direction: column;
+      align-items: center;
+    }
 
-          .card {
-            max-width: 90%;
-            margin-bottom: 2rem;
-          }
-        }
-      `}</style>
+    .card {
+      max-width: 90%;
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* New styles for ButtonWithCounter */
+  .button-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.85rem 2.8rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #fff;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    border: none;
+    border-radius: 9999px;
+    box-shadow:
+      0 0 12px #a855f7aa,
+      0 4px 8px rgba(168, 85, 247, 0.6);
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.25s ease,
+      background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-counter:hover,
+  .button-counter:focus {
+    background: linear-gradient(135deg, #c084fc, #9333ea);
+    box-shadow:
+      0 0 20px #c084fccc,
+      0 6px 15px rgba(201, 126, 255, 0.8);
+    transform: translateY(-3px);
+    outline: none;
+  }
+
+  .button-counter:active {
+    transform: translateY(-1px);
+    box-shadow:
+      0 0 12px #a855f7bb,
+      0 3px 7px rgba(168, 85, 247, 0.5);
+  }
+
+  /* The little counter badge next to the button */
+  .counter-badge {
+    background-color: #7c3aed;
+    padding: 0.3rem 0.7rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #ddd6fe;
+    box-shadow: 0 0 8px #a855f7cc;
+    user-select: none;
+    min-width: 2.2rem;
+    text-align: center;
+    letter-spacing: 0.03em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Mini card container around the counter */
+  .counter-card {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e0733, #4b0077);
+    box-shadow: 0 0 15px #7c3aedcc, 0 0 40px #a855f7aa;
+    border-radius: 1rem;
+    padding: 0.6rem 1rem;
+    color: #ddd6fe;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-left: 1rem;
+    user-select: none;
+    vertical-align: middle;
+    min-width: 90px;
+    text-align: center;
+  }
+
+  /* Adjust spacing in cards-section so buttons and counters align well */
+  .cards-section .card > * {
+    margin-bottom: 1rem;
+  }
+`}</style>
     </>
   );
 }
